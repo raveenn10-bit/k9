@@ -1,0 +1,185 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<main class="relative pt-28 sm:pt-36 pb-20 bg-mesh-radial bg-noise">
+  
+  <!-- Header Banner -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+    <div class="max-w-3xl mx-auto space-y-4">
+      <div class="eyebrow-badge">
+        <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+        <span>Canine Curriculum & Syllabus</span>
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-extrabold font-heading text-white">
+        Elite Dog Training <br><span class="gold-gradient-text">Programs in Sri Lanka</span>
+      </h1>
+      <p class="text-slate-400 text-base sm:text-lg">
+        Grounded in canine ethology and positive reinforcement. Designed for puppies, family companions, working breeds, and behavioral rehabilitation.
+      </p>
+    </div>
+  </section>
+
+  <!-- Programs List -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="space-y-12">
+      <% programs.forEach(function(prog, idx) { %>
+        <div class="c-bezel reveal-card <%= prog.popular ? 'border-amber-500/40 shadow-xl' : '' %>">
+          <div class="c-bezel-inner p-6 sm:p-10">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              <!-- Image Column (4 cols) -->
+              <div class="lg:col-span-4">
+                <div class="relative h-72 lg:h-96 rounded-2xl overflow-hidden border border-white/10 group">
+                  <img src="<%= prog.image %>" alt="<%= prog.title %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                  
+                  <div class="absolute top-4 left-4">
+                    <span class="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-amber-500/40 text-amber-400 text-xs font-bold uppercase tracking-wider">
+                      <%= prog.category %>
+                    </span>
+                  </div>
+
+                  <% if (prog.badge) { %>
+                    <div class="absolute top-4 right-4">
+                      <span class="px-3 py-1 rounded-full bg-amber-500 text-black text-xs font-extrabold uppercase tracking-wider shadow-lg">
+                        <%= prog.badge %>
+                      </span>
+                    </div>
+                  <% } %>
+
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <div class="p-3 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 text-xs text-slate-300 flex items-center justify-between">
+                      <span>⏱️ <strong><%= prog.duration %></strong></span>
+                      <span>🎯 <strong><%= prog.level %></strong></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Content Column (8 cols) -->
+              <div class="lg:col-span-8 space-y-6">
+                <div>
+                  <div class="flex items-center gap-3 text-xs text-amber-400 font-bold uppercase tracking-wider mb-2">
+                    <span>Age Range: <%= prog.ageRange %></span>
+                    <span>•</span>
+                    <span><%= prog.level %></span>
+                  </div>
+                  <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">
+                    <%= prog.title %>
+                  </h2>
+                  <p class="text-slate-300 text-sm sm:text-base leading-relaxed mt-2">
+                    <%= prog.description %>
+                  </p>
+                </div>
+
+                <!-- Learning Outcomes Grid -->
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Key Outcomes & Mastery Skills:</h4>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <% prog.outcomes.forEach(function(outcome) { %>
+                      <div class="flex items-start gap-2 text-xs sm:text-sm text-slate-300">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                        <span><%= outcome %></span>
+                      </div>
+                    <% }); %>
+                  </div>
+                </div>
+
+                <!-- Curriculum Breakdown Preview -->
+                <div class="p-4 rounded-xl bg-black/40 border border-white/5 space-y-2">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400">Curriculum Syllabus:</h4>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-400">
+                    <% prog.curriculum.forEach(function(curr) { %>
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                        <span><%= curr %></span>
+                      </div>
+                    <% }); %>
+                  </div>
+                </div>
+
+                <!-- Price & CTA Bar -->
+                <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+                  <div>
+                    <span class="text-[10px] uppercase tracking-wider text-slate-500 block">Tuition / Package Investment</span>
+                    <span class="text-2xl font-black text-amber-400 font-heading"><%= prog.priceLKR %></span>
+                  </div>
+
+                  <div class="flex items-center gap-3">
+                    <a href="/programs/<%= prog.slug %>" class="btn-secondary-luxury text-xs py-2.5 px-4 justify-center">
+                      <span>Full Details</span>
+                      <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-slate-400"></i>
+                    </a>
+                    <button data-open-booking data-program="<%= prog.title %>" class="btn-primary-luxury text-xs py-2.5 px-5 justify-center">
+                      <span>Book This Program</span>
+                      <div class="icon-disc !w-5 !h-5">
+                        <i data-lucide="calendar" class="w-3 h-3 text-black"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </section>
+
+  <!-- PROGRAM COMPARISON MATRIX -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+      <span class="eyebrow-badge">Comparative Analysis</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+        Program Comparison Matrix
+      </h2>
+      <p class="text-slate-400 text-sm">Find the training intensity and commitment matching your schedule.</p>
+    </div>
+
+    <div class="c-bezel overflow-x-auto">
+      <div class="c-bezel-inner p-6">
+        <table class="w-full text-left text-xs sm:text-sm text-slate-300">
+          <thead>
+            <tr class="border-b border-white/10 text-white font-heading text-xs uppercase tracking-wider">
+              <th class="py-4 px-4">Program Name</th>
+              <th class="py-4 px-4">Target Age</th>
+              <th class="py-4 px-4">Duration</th>
+              <th class="py-4 px-4">Location</th>
+              <th class="py-4 px-4">Off-Leash Proofing</th>
+              <th class="py-4 px-4">Enrollment</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/5">
+            <% programs.forEach(function(p) { %>
+              <tr class="hover:bg-white/5 transition-colors">
+                <td class="py-4 px-4 font-bold text-white"><%= p.title %></td>
+                <td class="py-4 px-4 text-slate-400"><%= p.ageRange %></td>
+                <td class="py-4 px-4 text-amber-400 font-semibold"><%= p.duration %></td>
+                <td class="py-4 px-4 text-slate-400"><%= p.category %></td>
+                <td class="py-4 px-4">
+                  <% if (p.id === 'puppy-foundation') { %>
+                    <span class="text-slate-500">Foundation Prep</span>
+                  <% } else { %>
+                    <span class="text-green-400 font-semibold">Included ✔</span>
+                  <% } %>
+                </td>
+                <td class="py-4 px-4">
+                  <button data-open-booking data-program="<%= p.title %>" class="text-xs font-bold text-amber-400 hover:underline">
+                    Enroll Now →
+                  </button>
+                </td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>

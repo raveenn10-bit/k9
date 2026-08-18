@@ -1,0 +1,150 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<main class="relative pt-28 sm:pt-36 pb-20 bg-mesh-radial bg-noise">
+  
+  <!-- Back Link & Header -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <a href="/programs" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-amber-400 mb-6 transition-colors">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      <span>Back to All Programs</span>
+    </a>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      
+      <!-- Main Content (8 cols) -->
+      <div class="lg:col-span-8 space-y-8">
+        
+        <div class="relative h-80 sm:h-[420px] rounded-3xl overflow-hidden border border-amber-500/30">
+          <img src="<%= program.image %>" alt="<%= program.title %>" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0E1015] via-transparent to-transparent"></div>
+          
+          <div class="absolute bottom-6 left-6 right-6 flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <span class="px-3.5 py-1 rounded-full bg-amber-500 text-black text-xs font-black uppercase tracking-wider">
+                <%= program.category %>
+              </span>
+              <h1 class="text-3xl sm:text-4xl font-extrabold font-heading text-white mt-2">
+                <%= program.title %>
+              </h1>
+            </div>
+            <div class="text-right">
+              <span class="text-xs uppercase text-slate-400 block">Investment</span>
+              <span class="text-2xl sm:text-3xl font-black text-amber-400 font-heading"><%= program.priceLKR %></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description Card -->
+        <div class="c-bezel">
+          <div class="c-bezel-inner p-6 sm:p-8 space-y-4">
+            <h2 class="text-xl font-bold font-heading text-white">Program Overview</h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              <%= program.description %>
+            </p>
+            <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs sm:text-sm text-slate-300">
+              <strong class="text-amber-400">Suitable Breeds:</strong> <%= program.suitableFor %>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detailed Syllabus & Curriculum -->
+        <div class="c-bezel">
+          <div class="c-bezel-inner p-6 sm:p-8 space-y-6">
+            <h2 class="text-xl font-bold font-heading text-white">Step-by-Step Curriculum</h2>
+            <div class="space-y-3">
+              <% program.curriculum.forEach(function(step, idx) { %>
+                <div class="p-4 rounded-xl bg-black/40 border border-white/5 flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
+                    <%= idx + 1 %>
+                  </span>
+                  <div>
+                    <h3 class="text-sm font-bold text-white"><%= step %></h3>
+                  </div>
+                </div>
+              <% }); %>
+            </div>
+          </div>
+        </div>
+
+        <!-- Expected Outcomes -->
+        <div class="c-bezel">
+          <div class="c-bezel-inner p-6 sm:p-8 space-y-6">
+            <h2 class="text-xl font-bold font-heading text-white">Certified Behavioral Milestones</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <% program.outcomes.forEach(function(out) { %>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 p-3 rounded-lg bg-black/30 border border-white/5">
+                  <i data-lucide="shield-check" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                  <span><%= out %></span>
+                </div>
+              <% }); %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sticky Sidebar Booking Action (4 cols) -->
+      <div class="lg:col-span-4 space-y-6">
+        
+        <div class="c-bezel sticky top-28">
+          <div class="c-bezel-inner p-6 space-y-6">
+            
+            <div>
+              <span class="text-xs uppercase text-slate-400 font-bold tracking-wider">Fast Enrollment</span>
+              <h3 class="text-2xl font-extrabold font-heading text-white mt-1"><%= program.title %></h3>
+              <p class="text-amber-400 text-2xl font-bold mt-2 font-heading"><%= program.priceLKR %></p>
+            </div>
+
+            <div class="space-y-3 text-xs text-slate-300 border-t border-b border-white/10 py-4">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400">Duration:</span>
+                <span class="font-bold text-white"><%= program.duration %></span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400">Age Eligibility:</span>
+                <span class="font-bold text-white"><%= program.ageRange %></span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400">Skill Level:</span>
+                <span class="font-bold text-white"><%= program.level %></span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400">Location:</span>
+                <span class="font-bold text-white">Academy & In-Home</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400">Certification:</span>
+                <span class="font-bold text-green-400">Official Graduation</span>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <button data-open-booking data-program="<%= program.title %>" class="btn-primary-luxury w-full justify-center text-sm py-3">
+                <span>Book This Program</span>
+                <div class="icon-disc">
+                  <i data-lucide="calendar" class="w-4 h-4 text-black"></i>
+                </div>
+              </button>
+
+              <a href="https://wa.me/<%= data.brand.whatsapp %>?text=<%= encodeURIComponent('Hello Ceylon K9 Academy, I want to inquire about ' + program.title) %>" target="_blank" class="btn-whatsapp-luxury w-full justify-center text-sm py-3">
+                <i data-lucide="message-circle" class="w-4 h-4 text-white"></i>
+                <span>Ask via WhatsApp</span>
+              </a>
+            </div>
+
+            <div class="text-[11px] text-slate-500 text-center">
+              ✦ Free behavioral assessment before training starts.
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>

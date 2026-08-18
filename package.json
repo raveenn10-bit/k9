@@ -1,0 +1,22 @@
+{
+  "name": "ceylon-k9-academy",
+  "version": "1.0.0",
+  "description": "Ceylon K9 Academy - Smart Training For Happy Dogs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ejs": "^3.1.10"
+  },
+  "keywords": [
+    "k9",
+    "dog-training",
+    "sri-lanka",
+    "ceylon-k9-academy"
+  ],
+  "author": "Ceylon K9 Academy",
+  "license": "ISC"
+}

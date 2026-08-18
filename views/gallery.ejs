@@ -1,0 +1,112 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<main class="relative pt-28 sm:pt-36 pb-20 bg-mesh-radial bg-noise">
+  
+  <!-- Header -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+    <div class="max-w-3xl mx-auto space-y-4">
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-serif text-white tracking-[0.35em] uppercase font-normal">
+        A L B U M S
+      </h1>
+      <p class="text-slate-400 text-sm sm:text-base font-body">
+        Witness real transformations of Ceylon K9 Academy. Every canine featured here has graduated through our certified programs in Sri Lanka.
+      </p>
+    </div>
+
+    <!-- Filter Buttons (Matches Screenshot Style) -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mt-8">
+      <button class="gallery-filter-btn active px-4 py-1.5 rounded-full bg-black border border-amber-500/60 text-amber-400 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest transition-all shadow-md" data-filter="all">
+        ALL WORKS
+      </button>
+      <button class="gallery-filter-btn px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-white/30 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest transition-all" data-filter="rottweiler">
+        ROTTWEILER
+      </button>
+      <button class="gallery-filter-btn px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-white/30 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest transition-all" data-filter="gsd">
+        GERMAN SHEPHERD
+      </button>
+      <button class="gallery-filter-btn px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-white/30 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest transition-all" data-filter="malinois">
+        BELGIAN MALINOIS
+      </button>
+      <button class="gallery-filter-btn px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-white/30 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest transition-all" data-filter="boxer">
+        BOXER & FAMILY
+      </button>
+      <button class="gallery-filter-btn px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-white/30 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest transition-all" data-filter="puppy">
+        PUPPIES
+      </button>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <% graduates.forEach(function(grad, idx) { 
+        let cat = 'family';
+        if (grad.breed.toLowerCase().includes('rottweiler')) cat = 'rottweiler';
+        else if (grad.breed.toLowerCase().includes('shepherd')) cat = 'gsd';
+        else if (grad.breed.toLowerCase().includes('boxer')) cat = 'boxer';
+        else if (grad.program.toLowerCase().includes('puppy')) cat = 'puppy';
+      %>
+        <div class="c-bezel gallery-grid-item" data-category="<%= cat %>">
+          <div class="c-bezel-inner p-5 flex flex-col justify-between h-full group">
+            
+            <div>
+              <div class="relative h-72 rounded-2xl overflow-hidden mb-5 border border-white/10 cursor-pointer" data-lightbox data-lightbox-src="<%= grad.image %>" data-lightbox-caption="<%= grad.name %> (<%= grad.breed %>) - <%= grad.certificate %>">
+                <img src="<%= grad.image %>" alt="<%= grad.name %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                
+                <div class="absolute top-3 left-3">
+                  <span class="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-amber-500/40 text-amber-400 text-xs font-bold uppercase">
+                    <%= grad.certificate %>
+                  </span>
+                </div>
+
+                <div class="absolute top-3 right-3 p-2 rounded-full bg-black/80 text-white border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <i data-lucide="maximize-2" class="w-4 h-4"></i>
+                </div>
+
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-slate-300">
+                  <span class="font-bold text-white"><%= grad.name %></span>
+                  <span>Age: <%= grad.age %></span>
+                </div>
+              </div>
+
+              <div class="space-y-3 mb-6">
+                <div>
+                  <h3 class="text-xl font-bold font-heading text-white"><%= grad.name %></h3>
+                  <p class="text-xs text-amber-400 font-semibold uppercase tracking-wider"><%= grad.breed %></p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-black/40 border border-white/5 text-xs text-slate-300 space-y-1">
+                  <span class="text-[10px] text-slate-500 uppercase font-bold block">Certified Program</span>
+                  <p class="font-semibold text-white"><%= grad.program %></p>
+                </div>
+
+                <p class="text-xs text-slate-400 leading-relaxed">
+                  <%= grad.story %>
+                </p>
+
+                <div class="p-3 rounded-xl bg-amber-500/5 border border-amber-500/20 text-xs text-slate-300 italic">
+                  "<%= grad.ownerQuote %>"
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+              <span class="text-xs text-green-400 font-bold flex items-center gap-1">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Verified Graduate
+              </span>
+              <button data-open-booking data-program="<%= grad.program %>" class="btn-primary-luxury text-xs py-2 px-4">
+                <span>Enroll Like <%= grad.name %></span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>

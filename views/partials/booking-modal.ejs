@@ -1,0 +1,111 @@
+<!-- Luxury VIP Booking & Evaluation Modal -->
+<div id="booking-modal" class="fixed inset-0 z-50 modal-backdrop hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+  <div class="relative w-full max-w-2xl bg-[#0E1015] border border-amber-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-black/80 my-8">
+    
+    <!-- Close Button -->
+    <button id="close-booking-modal" aria-label="Close Modal" class="absolute top-5 right-5 p-2 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-colors">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Modal Header -->
+    <div class="mb-6 space-y-1">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider">
+        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+        <span>Evaluation Booking</span>
+      </div>
+      <h3 class="text-2xl sm:text-3xl font-extrabold text-white font-heading tracking-wide">
+        Begin Your Dog's Transformation
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-400">
+        Fill out your canine's details below to reserve your priority evaluation session with Ceylon K9 Academy.
+      </p>
+    </div>
+
+    <!-- Booking Form -->
+    <form id="booking-form" class="space-y-4">
+      
+      <!-- Owner Details -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5" for="b-owner-name">
+            Your Full Name *
+          </label>
+          <input type="text" id="b-owner-name" required placeholder="e.g. Sanjeewa Wickramasinghe" class="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-all">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5" for="b-owner-phone">
+            Phone / WhatsApp Number *
+          </label>
+          <input type="tel" id="b-owner-phone" required placeholder="e.g. 077 123 4567" class="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-all">
+        </div>
+      </div>
+
+      <!-- Dog Details -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5" for="b-dog-name">
+            Dog's Name *
+          </label>
+          <input type="text" id="b-dog-name" required placeholder="e.g. Thor" class="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-all">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5" for="b-dog-breed">
+            Breed *
+          </label>
+          <input type="text" id="b-dog-breed" required placeholder="e.g. German Shepherd" class="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-all">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5" for="b-dog-age">
+            Age *
+          </label>
+          <input type="text" id="b-dog-age" required placeholder="e.g. 5 Months" class="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-all">
+        </div>
+      </div>
+
+      <!-- Program Selection & Location -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5" for="booking-program-select">
+            Desired Training Program *
+          </label>
+          <select id="booking-program-select" required class="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/10 text-white text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-all">
+            <option value="">Select a Program</option>
+            <% data.programs.forEach(function(prog) { %>
+              <option value="<%= prog.title %>"><%= prog.title %></option>
+            <% }); %>
+            <option value="General Evaluation & Behavior Advice">General Evaluation & Advice</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5" for="b-location">
+            Your City / Area *
+          </label>
+          <input type="text" id="b-location" required placeholder="e.g. Colombo, Kandy, Galle, etc." class="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-all">
+        </div>
+      </div>
+
+      <!-- Additional Notes -->
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5" for="b-notes">
+          Behavioral Challenges & Goals (Optional)
+        </label>
+        <textarea id="b-notes" rows="2" placeholder="Describe any specific issues (e.g. pulling on leash, jumping on guests, aggression, anxiety, or puppy training)..." class="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition-all"></textarea>
+      </div>
+
+      <!-- Submit Action -->
+      <div class="pt-3 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2 text-xs text-slate-400">
+          <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span>100% Privacy Protected. Immediate Concierge Response.</span>
+        </div>
+        <button type="submit" class="btn-primary-luxury w-full sm:w-auto justify-center">
+          <span>Confirm & Submit Booking</span>
+          <div class="icon-disc !w-5 !h-5">
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-black"></i>
+          </div>
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

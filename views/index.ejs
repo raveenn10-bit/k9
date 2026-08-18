@@ -1,0 +1,510 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<main class="relative bg-[#07080A] text-slate-100 selection:bg-amber-500 selection:text-black">
+  
+  <!-- 1. FULL-BLEED EDITORIAL HERO (Matches Reference Header) -->
+  <section class="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-end pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    
+    <!-- Background Hero Image with Deep Luxury Gradient Overlay & Ken Burns Zoom -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <img src="/media/hero.jpg" alt="Ceylon K9 Academy — Master Trainer Ashen" class="w-full h-full object-cover object-[70%_center] sm:object-[75%_center] kenburns-hero transform">
+      <div class="absolute inset-0 bg-gradient-to-r from-[#07080A] via-[#07080A]/80 to-transparent sm:w-3/4"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#07080A] via-black/40 to-black/20"></div>
+    </div>
+
+    <!-- Hero Content Overlay with Staggered Fade-Up Reveal -->
+    <div class="relative z-10 max-w-7xl mx-auto w-full space-y-6">
+      
+      <!-- Top Badges (Stagger 1) -->
+      <div class="hero-stagger flex flex-wrap items-center gap-3">
+        <div class="eyebrow-badge font-sans text-[10px] sm:text-xs tracking-widest uppercase font-semibold">
+          <span class="pulse-dot"></span>
+          <span>Sri Lanka's Premier K9 Academy</span>
+        </div>
+        <a href="https://www.tiktok.com/@www.ashen8" target="_blank" class="px-3.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] sm:text-xs font-semibold font-sans tracking-wider text-white flex items-center gap-2 hover:border-amber-400 transition-colors">
+          <svg class="w-3.5 h-3.5 fill-current text-white" viewBox="0 0 24 24">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.86 4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-.04-4.52z"/>
+          </svg>
+          <span>130K+ Followers @www.ashen8</span>
+        </a>
+      </div>
+
+      <!-- Main Headline (Stagger 2 - Exact Hierarchy) -->
+      <div class="hero-stagger max-w-4xl space-y-3">
+        <h1 class="text-4xl sm:text-7xl lg:text-8xl font-serif tracking-[0.25em] leading-[1.08] text-white uppercase font-normal">
+          SMART TRAINING <br>
+          <span class="gold-gradient-text">FOR HAPPY DOGS</span>
+        </h1>
+        <p class="text-xs sm:text-base text-slate-300 font-normal font-body max-w-2xl leading-relaxed">
+          Transforming canine behavior through ethology-based positive reinforcement, handler mastery, and proven real-world distraction proofing across Sri Lanka.
+        </p>
+      </div>
+
+      <!-- Hero Actions & Contact Hotline (Stagger 3) -->
+      <div class="hero-stagger pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+        <button data-open-booking class="btn-primary-luxury justify-center font-sans text-xs uppercase tracking-wider">
+          <span>Book Training Evaluation</span>
+          <div class="icon-disc">
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-black"></i>
+          </div>
+        </button>
+
+        <a href="https://wa.me/<%= data.brand.whatsapp %>?text=<%= encodeURIComponent(data.brand.whatsappDefaultMsg) %>" target="_blank" class="btn-whatsapp-luxury justify-center font-sans text-xs uppercase tracking-wider">
+          <svg class="w-4 h-4 fill-white shrink-0" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          <span>WhatsApp Master Trainer</span>
+        </a>
+
+        <a href="#portfolio-section" class="btn-secondary-luxury justify-center font-sans text-xs uppercase tracking-wider">
+          <span>View Graduates Album</span>
+          <i data-lucide="arrow-down" class="w-4 h-4 text-amber-400"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2. ABOUT & CAPABILITIES (Matches Screenshot Exactly: Left Portrait + Right 2x3 Capsules + Bio + More Button) -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/5">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left Column: Floating Dot + Portrait Card -->
+      <div class="lg:col-span-5 flex flex-col items-center lg:items-start">
+        
+        <!-- Floating Accent Dot -->
+        <div class="w-3.5 h-3.5 rounded-full bg-amber-400 shadow-lg shadow-amber-400/50 mb-6 hidden lg:block"></div>
+
+        <!-- Master Trainer Portrait Card (Matches Uploaded Cutout Portrait) -->
+        <div class="relative w-full max-w-md mx-auto lg:max-w-none aspect-[3/4] sm:aspect-[4/5] rounded-[2rem] overflow-hidden bg-gradient-to-b from-[#151923] via-[#0E1015] to-[#07080A] border border-white/10 shadow-2xl group flex items-end justify-center pt-6">
+          <img src="/media/ashen-portrait.png" alt="Master Trainer Ashen — Ceylon K9 Academy" class="w-full h-full object-contain object-bottom group-hover:scale-105 transition-transform duration-700">
+          
+          <!-- Bottom Floating Badge -->
+          <div class="absolute bottom-4 left-4 right-4 p-3 rounded-2xl bg-black/80 backdrop-blur-md border border-white/10 flex items-center justify-between z-10">
+            <div>
+              <h4 class="text-xs font-bold font-heading text-white">Master Trainer Ashen</h4>
+              <p class="text-[10px] text-amber-400 font-medium">Founder & Head Canine Ethologist</p>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[9px] font-bold uppercase tracking-wider">
+              10+ Yrs Exp
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Title + Address + 2x3 Grid Capsules + Narrative Copy + More Button -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- Header & Location (Matches Reference Screenshot) -->
+        <div class="space-y-2">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-wide uppercase">
+            CEYLON K9 ACADEMY
+          </h2>
+          <div class="flex items-center gap-1.5 text-xs font-bold text-amber-500 uppercase tracking-widest">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span>LOCATION: WESTERN PROVINCE & ISLAND-WIDE, SRI LANKA</span>
+          </div>
+        </div>
+
+        <!-- 2x3 Capability / Discipline Capsules Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+          
+          <!-- Capsule 1: Puppy Foundation -->
+          <div class="p-3.5 rounded-2xl bg-[#0E1015] border border-white/10 hover:border-amber-500/40 transition-all flex items-center gap-3.5 group cursor-pointer" onclick="window.location.href='/programs/puppy-foundation'">
+            <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 group-hover:bg-amber-500 group-hover:text-black transition-colors">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-white group-hover:text-amber-400 transition-colors">Puppy Foundation</h4>
+              <p class="text-[11px] text-slate-400">Early Imprinting & House Manners</p>
+            </div>
+          </div>
+
+          <!-- Capsule 2: Master Obedience -->
+          <div class="p-3.5 rounded-2xl bg-[#0E1015] border border-white/10 hover:border-amber-500/40 transition-all flex items-center gap-3.5 group cursor-pointer" onclick="window.location.href='/programs/master-obedience'">
+            <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 group-hover:bg-amber-500 group-hover:text-black transition-colors">
+              <i data-lucide="shield-check" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-white group-hover:text-amber-400 transition-colors">Master Obedience</h4>
+              <p class="text-[11px] text-slate-400">Loose Leash & Distance Recall</p>
+            </div>
+          </div>
+
+          <!-- Capsule 3: Behavior Modification -->
+          <div class="p-3.5 rounded-2xl bg-[#0E1015] border border-white/10 hover:border-amber-500/40 transition-all flex items-center gap-3.5 group cursor-pointer" onclick="window.location.href='/programs/behavior-rehab'">
+            <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 group-hover:bg-amber-500 group-hover:text-black transition-colors">
+              <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-white group-hover:text-amber-400 transition-colors">Behavior Modification</h4>
+              <p class="text-[11px] text-slate-400">Reactivity & Trauma Rehab</p>
+            </div>
+          </div>
+
+          <!-- Capsule 4: Personal Protection -->
+          <div class="p-3.5 rounded-2xl bg-[#0E1015] border border-white/10 hover:border-amber-500/40 transition-all flex items-center gap-3.5 group cursor-pointer" onclick="window.location.href='/programs/personal-protection'">
+            <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 group-hover:bg-amber-500 group-hover:text-black transition-colors">
+              <i data-lucide="zap" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-white group-hover:text-amber-400 transition-colors">Personal Protection</h4>
+              <p class="text-[11px] text-slate-400">Executive & Working K9 Guard</p>
+            </div>
+          </div>
+
+          <!-- Capsule 5: VIP Board & Train -->
+          <div class="p-3.5 rounded-2xl bg-[#0E1015] border border-white/10 hover:border-amber-500/40 transition-all flex items-center gap-3.5 group cursor-pointer" onclick="window.location.href='/programs/vip-residence-bootcamp'">
+            <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 group-hover:bg-amber-500 group-hover:text-black transition-colors">
+              <i data-lucide="home" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-white group-hover:text-amber-400 transition-colors">VIP Board & Train</h4>
+              <p class="text-[11px] text-slate-400">In-Residence Master Bootcamp</p>
+            </div>
+          </div>
+
+          <!-- Capsule 6: In-Home Mentorship -->
+          <div class="p-3.5 rounded-2xl bg-[#0E1015] border border-white/10 hover:border-amber-500/40 transition-all flex items-center gap-3.5 group cursor-pointer" onclick="window.location.href='/programs/in-home-coaching'">
+            <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 group-hover:bg-amber-500 group-hover:text-black transition-colors">
+              <i data-lucide="users" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-white group-hover:text-amber-400 transition-colors">In-Home Coaching</h4>
+              <p class="text-[11px] text-slate-400">Family & Handler Mentorship</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bio Paragraphs (Matches Reference Copy Style) -->
+        <div class="space-y-3 pt-2 text-slate-300 text-xs sm:text-sm leading-relaxed font-body">
+          <p>
+            I'm <strong class="text-white">Ashen</strong>, Master Canine Trainer & Ethologist. Based in the Western Province with island-wide programs across Sri Lanka, the trainer in me finds potential in every dog — building calm confidence, off-leash obedience, and harmonious family life.
+          </p>
+          <p>
+            Our approach to canine education across Sri Lanka is deeply personal and scientifically grounded. A program is built upon understanding canine psychology and structured communication, bursting with positive motivation. I transform behavioral challenges into a lifelong bond between you and your dog.
+          </p>
+        </div>
+
+        <!-- Sleek "MORE" Button (Matches Screenshot Exactly) -->
+        <div class="pt-3">
+          <a href="/about" class="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-[#1E222D] hover:bg-amber-500 hover:text-black border border-white/10 text-xs font-bold uppercase tracking-widest text-white transition-all shadow-md">
+            MORE
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. ALBUMS (Matches Reference Screenshot Exactly: Spaced Title + Filter Pills + 3x3 Clean Portrait Grid) -->
+  <section id="portfolio-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/5">
+    
+    <!-- Section Title (Exact Letter-Spaced Serif Heading from Screenshot) -->
+    <div class="text-center max-w-3xl mx-auto mb-10 space-y-4">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif text-white tracking-[0.35em] uppercase font-normal">
+        A L B U M S
+      </h2>
+
+      <!-- Filter Pill Buttons (Matches Screenshot: Centered Pills with "ALL WORKS") -->
+      <div class="flex flex-wrap items-center justify-center gap-2 pt-2">
+        <button class="gallery-filter-btn active px-4 py-1.5 rounded-full bg-black border border-amber-500/60 text-amber-400 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest transition-all shadow-md" data-filter="all">
+          ALL WORKS
+        </button>
+        <button class="gallery-filter-btn px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-white/30 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest transition-all" data-filter="rottweiler">
+          ROTTWEILER
+        </button>
+        <button class="gallery-filter-btn px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-white/30 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest transition-all" data-filter="gsd">
+          GERMAN SHEPHERD
+        </button>
+        <button class="gallery-filter-btn px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-white/30 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest transition-all" data-filter="malinois">
+          BELGIAN MALINOIS
+        </button>
+        <button class="gallery-filter-btn px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-white/30 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest transition-all" data-filter="boxer">
+          BOXER & FAMILY
+        </button>
+        <button class="gallery-filter-btn px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-white/30 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest transition-all" data-filter="puppy">
+          PUPPIES
+        </button>
+      </div>
+    </div>
+
+    <!-- 3x3 Clean Portrait Grid (Matches Screenshot: 3 Columns, Frameless High-Res Portrait Cards) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+      <% data.graduates.forEach(function(grad) { %>
+        <div class="gallery-grid-item group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="<%= grad.category %>" data-lightbox data-lightbox-src="<%= grad.image %>" data-lightbox-caption="<%= grad.name %> (<%= grad.breed %>) — <%= grad.certificate %>">
+          
+          <!-- Image Aspect Ratio Container -->
+          <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
+            <img src="<%= grad.image %>" alt="<%= grad.name %>" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            <!-- Top Tag on Hover -->
+            <div class="absolute top-3.5 left-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border border-amber-500/40 text-amber-400 text-[10px] font-bold uppercase tracking-wider">
+                <%= grad.certificate %>
+              </span>
+            </div>
+
+            <!-- Zoom Icon on Hover -->
+            <div class="absolute top-3.5 right-3.5 p-2 rounded-full bg-black/80 text-white border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+            </div>
+
+            <!-- Subtle Bottom Watermark Tag (Matches Photography Reference Style) -->
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white/80 opacity-60 group-hover:opacity-100 transition-opacity">
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold font-heading text-white"><%= grad.name %></h4>
+                <p class="text-[10px] text-amber-400/90 font-medium uppercase tracking-wider"><%= grad.breed %></p>
+              </div>
+              <span class="text-[9px] text-slate-400 uppercase tracking-widest hidden sm:inline">© Ceylon K9</span>
+            </div>
+          </div>
+
+        </div>
+      <% }); %>
+    </div>
+
+    <!-- View All Button -->
+    <div class="mt-12 text-center">
+      <a href="/gallery" class="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-[#1E222D] hover:bg-amber-500 hover:text-black border border-white/10 text-xs font-bold uppercase tracking-widest text-white transition-all shadow-md">
+        VIEW FULL GRADUATE ALBUM
+      </a>
+    </div>
+  <!-- 4. TESTIMONIALS (Matches Reference Alternating Staggered Layout) -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/5">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+      <h2 class="text-3xl sm:text-5xl font-bold font-brand text-white tracking-widest uppercase">
+        TESTIMONIALS
+      </h2>
+      <p class="text-slate-400 text-sm font-body">Real stories from our graduated canine families across Sri Lanka.</p>
+    </div>
+
+    <div class="space-y-16">
+      
+      <!-- Testimonial Row 1 (Text Left + Photo Right) -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-7 space-y-4">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <p class="text-slate-200 text-base sm:text-lg italic font-serif leading-relaxed">
+            "Ceylon K9 Academy is miles ahead of traditional dog trainers in Sri Lanka. Their modern, science-based approach made Thor so obedient that he walks beside me through Colombo traffic with zero tension. Truly luxury standard!"
+          </p>
+          <div>
+            <h4 class="text-base font-bold text-white font-heading">Dr. Sanjeewa Wickramasinghe</h4>
+            <p class="text-xs text-amber-400 font-medium">Colombo 07 • Thor (German Shepherd)</p>
+          </div>
+        </div>
+        <div class="md:col-span-5">
+          <div class="rounded-2xl overflow-hidden border border-white/10 aspect-[4/3] bg-black">
+            <img src="/Album/554761127_122154654236787892_5296319287022271715_n.jpg" alt="Thor GSD Graduate" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial Row 2 (Photo Left + Text Right) -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-5 order-2 md:order-1">
+          <div class="rounded-2xl overflow-hidden border border-white/10 aspect-[4/3] bg-black">
+            <img src="/Album/555549741_122154654404787892_5315441370469195461_n.jpg" alt="Buri & Bura Boxers" class="w-full h-full object-cover">
+          </div>
+        </div>
+        <div class="md:col-span-7 order-1 md:order-2 space-y-4">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <p class="text-slate-200 text-base sm:text-lg italic font-serif leading-relaxed">
+            "Managing two high-energy Boxers pulling on leashes was a daily struggle. Following the structured obedience program, both now walk in unison side-by-side with loose leashes without chaos. Unbelievable expertise!"
+          </p>
+          <div>
+            <h4 class="text-base font-bold text-white font-heading">Kavinda & Shiroma Perera</h4>
+            <p class="text-xs text-amber-400 font-medium">Negombo • Buri & Bura (Boxer Siblings)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial Row 3 (Text Left + Photo Right) -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-7 space-y-4">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <p class="text-slate-200 text-base sm:text-lg italic font-serif leading-relaxed">
+            "I was worried about Zeus's reactive barking toward strangers. The behavioral team at Ceylon K9 Academy diagnosed the root-cause and rehabilitated him completely. Worth every single rupee."
+          </p>
+          <div>
+            <h4 class="text-base font-bold text-white font-heading">Dinesh Ratnayake</h4>
+            <p class="text-xs text-amber-400 font-medium">Mount Lavinia • Zeus (Rottweiler)</p>
+          </div>
+        </div>
+        <div class="md:col-span-5">
+          <div class="rounded-2xl overflow-hidden border border-white/10 aspect-[4/3] bg-black">
+            <img src="/Album/499422200_122129296526787892_3931657032319304879_n.jpg" alt="Zeus Rottweiler" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. PLANS & INVESTMENT (Matches Exact Uploaded Ceylon K9 Academy 10-Day Program & Flexible Pricing) -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/5">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+      <span class="eyebrow-badge">Transparent Tuition & Official Fees</span>
+      <h2 class="text-3xl sm:text-5xl font-bold font-brand text-white tracking-widest uppercase">
+        PLANS & INVESTMENT
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base font-body">
+        Our official 10-day intensive training program designed for rapid, permanent behavioral correction and complete obedience.
+      </p>
+    </div>
+
+    <!-- 2 Plans Pricing Grid (Matches Screenshot Details) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
+      
+      <!-- Plan 1: 10-Day Continuous Intensive Training Program (Full Package Highlight) -->
+      <div class="c-bezel border-amber-500/60 pricing-card-highlight">
+        <div class="c-bezel-inner p-8 sm:p-10 flex flex-col justify-between h-full bg-[#07080A] space-y-6">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase text-amber-400 font-bold tracking-wider">Most Popular Choice</span>
+              <span class="px-3 py-0.5 rounded-full bg-amber-500 text-black text-[10px] font-extrabold uppercase">Full Package 🚀</span>
+            </div>
+            
+            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white mt-2">
+              10-Day Intensive Program
+            </h3>
+            <p class="text-xs text-slate-400 mt-1">10 Continuous Days • 50 Minutes per day</p>
+            
+            <!-- Price Display -->
+            <div class="my-6 p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20">
+              <div class="flex items-baseline gap-2">
+                <span class="text-3xl sm:text-4xl font-black text-amber-400 font-heading">Rs. 50,000/=</span>
+                <span class="text-xs text-slate-300 font-semibold uppercase">Total Cost</span>
+              </div>
+              <div class="text-[11px] text-slate-400 mt-1 space-y-0.5">
+                <p>• Training Fee (10 Days): <strong class="text-white">Rs. 45,000/=</strong></p>
+                <p>• Transportation Fee (All 10 Days): <strong class="text-white">Rs. 5,000/=</strong></p>
+              </div>
+            </div>
+
+            <!-- Curriculum Checklist (Matches Screenshot Exactly) -->
+            <div class="space-y-4 text-xs text-slate-200 border-t border-white/10 pt-4">
+              <div>
+                <h4 class="font-bold text-amber-400 uppercase text-[11px] mb-2">✔️ Behavior Correction Content:</h4>
+                <ul class="space-y-1.5 text-slate-300 pl-2">
+                  <li class="flex items-center gap-2">✓ Fix Jumping & Hyperactivity</li>
+                  <li class="flex items-center gap-2">✓ Eliminate Leash Pulling & Dragging</li>
+                  <li class="flex items-center gap-2">✓ Aggression & Reactivity Remediation</li>
+                  <li class="flex items-center gap-2">✓ Stop Excessive Barking & Destructive Habits</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-bold text-amber-400 uppercase text-[11px] mb-2">✔️ Full Obedience Training:</h4>
+                <ul class="space-y-1.5 text-slate-300 pl-2">
+                  <li class="flex items-center gap-2">✓ Sit, Stay, Down & Extended Stay</li>
+                  <li class="flex items-center gap-2">✓ Emergency Recall (Come When Called)</li>
+                  <li class="flex items-center gap-2">✓ Perfect Heel & Loose Leash Control</li>
+                  <li class="flex items-center gap-2">✓ Basic Control Commands & House Manners</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <button data-open-booking data-program="10-Day Continuous Intensive Training Program (Rs. 50,000)" class="btn-primary-luxury w-full justify-center text-xs py-3.5 mt-4">
+            <span>Book 10-Day Intensive Program</span>
+            <div class="icon-disc !w-5 !h-5">
+              <i data-lucide="arrow-right" class="w-3 h-3 text-black"></i>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Plan 2: Payment Flexibility Option (Daily Payments Accepted) -->
+      <div class="c-bezel">
+        <div class="c-bezel-inner p-8 sm:p-10 flex flex-col justify-between h-full bg-[#0E1015] space-y-6">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase text-slate-400 font-bold tracking-wider">Pay-As-You-Train</span>
+              <span class="px-3 py-0.5 rounded-full bg-white/10 text-white text-[10px] font-bold uppercase">Flexible 📌</span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white mt-2">
+              Daily Flexible Payment
+            </h3>
+            <p class="text-xs text-slate-400 mt-1">No need to pay the full amount at once</p>
+            
+            <!-- Price Display -->
+            <div class="my-6 p-4 rounded-2xl bg-white/5 border border-white/10">
+              <div class="flex items-baseline gap-2">
+                <span class="text-3xl sm:text-4xl font-black text-white font-heading">Rs. 5,000/=</span>
+                <span class="text-xs text-slate-400 font-semibold uppercase">/ per day</span>
+              </div>
+              <div class="text-[11px] text-amber-400 mt-1">
+                <p>📌 Payment flexibility available — daily payments accepted!</p>
+              </div>
+            </div>
+
+            <!-- Highlights Checklist -->
+            <div class="space-y-4 text-xs text-slate-300 border-t border-white/10 pt-4">
+              <div>
+                <h4 class="font-bold text-white uppercase text-[11px] mb-2">📌 Key Payment & Program Benefits:</h4>
+                <ul class="space-y-2 text-slate-300 pl-2">
+                  <li class="flex items-center gap-2">✓ <strong>No upfront stress:</strong> Pay daily after each training session</li>
+                  <li class="flex items-center gap-2">✓ <strong>50 minutes</strong> daily focused 1-on-1 master instruction</li>
+                  <li class="flex items-center gap-2">✓ <strong>Full 10-day syllabus</strong> (Behavior Correction + Obedience)</li>
+                  <li class="flex items-center gap-2">✓ <strong>Direct handler coaching</strong> to maintain results forever</li>
+                  <li class="flex items-center gap-2">✓ <strong>Island-wide doorstep service</strong> at your convenience</li>
+                </ul>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-amber-500/5 border border-amber-500/20 text-xs text-slate-300">
+                <p class="italic text-[11px]">
+                  "Experience measurable behavioral improvements from day one, with total financial convenience."
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <button data-open-booking data-program="Daily Flexible Payment Plan (Rs. 5,000/day)" class="btn-secondary-luxury w-full justify-center text-xs py-3.5 mt-4">
+            <span>Inquire for Daily Plan</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. FULL-WIDTH INFINITE LOOPING PHOTO RIBBON -->
+  <section class="w-full overflow-hidden border-t border-b border-white/10 bg-[#040507] py-6">
+    <div class="marquee-strip-wrapper">
+      <div class="marquee-strip-track">
+        <% data.socialStrip.forEach(function(item) { %>
+          <div class="relative w-52 sm:w-64 md:w-80 aspect-[4/3] rounded-2xl overflow-hidden group cursor-pointer shrink-0 border border-white/10" data-lightbox data-lightbox-src="<%= item.image %>" data-lightbox-caption="<%= item.tag %> • Ceylon K9 Academy Live">
+            <img src="<%= item.image %>" alt="<%= item.tag %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+              <span class="text-[10px] font-sans font-bold text-amber-400 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full border border-amber-500/40 uppercase tracking-widest">
+                <%= item.tag %>
+              </span>
+            </div>
+          </div>
+        <% }); %>
+        <% data.socialStrip.forEach(function(item) { %>
+          <div class="relative w-52 sm:w-64 md:w-80 aspect-[4/3] rounded-2xl overflow-hidden group cursor-pointer shrink-0 border border-white/10" data-lightbox data-lightbox-src="<%= item.image %>" data-lightbox-caption="<%= item.tag %> • Ceylon K9 Academy Live">
+            <img src="<%= item.image %>" alt="<%= item.tag %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+              <span class="text-[10px] font-sans font-bold text-amber-400 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full border border-amber-500/40 uppercase tracking-widest">
+                <%= item.tag %>
+              </span>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>
