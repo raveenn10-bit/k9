@@ -391,13 +391,44 @@ body {
 .marquee-strip-track {
   display: flex;
   flex-shrink: 0;
-  gap: 0.5rem;
+  gap: 1rem;
   width: max-content;
-  animation: marquee-scroll-ribbon 35s linear infinite;
+  animation: marquee-scroll-ribbon 25s linear infinite !important;
   will-change: transform;
 }
 
 .marquee-strip-wrapper:hover .marquee-strip-track {
+  animation-play-state: paused;
+}
+
+/* Mobile Album Continuous Auto-Scroll Carousel */
+@keyframes mobile-album-autoscroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.mobile-album-wrapper {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  width: 100%;
+}
+
+.mobile-album-track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1rem;
+  width: max-content;
+  animation: mobile-album-autoscroll 30s linear infinite !important;
+  will-change: transform;
+}
+
+.mobile-album-wrapper:hover .mobile-album-track,
+.mobile-album-wrapper:active .mobile-album-track {
   animation-play-state: paused;
 }
 
@@ -722,19 +753,54 @@ html.light-mode .pricing-card-highlight {
   box-shadow: 0 20px 40px -10px rgba(234, 88, 12, 0.18) !important;
 }
 
-/* ==========================================================================
-   7. FRAMER-MOTION SMOOTH SPRINGS & SCROLL ANIMATIONS
-   ========================================================================== */
-.framer-reveal {
-  opacity: 0;
-  transform: translateY(28px) scale(0.98);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+/* Light Mode Booking & Quiz Modal */
+html.light-mode .modal-backdrop > div {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(226, 232, 240, 0.95) !important;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.18), 0 0 30px rgba(255, 107, 0, 0.08) !important;
+}
+html.light-mode .modal-backdrop input,
+html.light-mode .modal-backdrop select,
+html.light-mode .modal-backdrop textarea {
+  background: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+html.light-mode .modal-backdrop input:focus,
+html.light-mode .modal-backdrop select:focus,
+html.light-mode .modal-backdrop textarea:focus {
+  border-color: #EA580C !important;
+  background: #FFFFFF !important;
+}
+html.light-mode .modal-backdrop label {
+  color: #334155 !important;
 }
 
-.framer-reveal.framer-in-view {
-  opacity: 1;
-  transform: translateY(0px) scale(1);
+/* Light Mode Main & Sections Transparency */
+html.light-mode main {
+  background: transparent !important;
+}
+html.light-mode #portfolio-section,
+html.light-mode #testimonials-section,
+html.light-mode #pricing-section,
+html.light-mode #about-section {
+  border-top-color: rgba(226, 232, 240, 0.8) !important;
+}
+
+/* Fluid High-Definition Typography Scale */
+h1 {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  letter-spacing: -0.02em;
+}
+.font-serif {
+  letter-spacing: 0.18em;
+}
+
+/* Responsive Mobile Typography Polish */
+@media (max-width: 640px) {
+  .font-serif {
+    letter-spacing: 0.12em !important;
+  }
 }
 
 /* Emojis & Symbols High-Contrast Rendering */
@@ -774,5 +840,6 @@ html:not(.light-mode) .text-slate-200 {
     transition-duration: 0.5s !important;
   }
 }
+
 
 
