@@ -477,13 +477,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-8 items-stretch max-w-4xl mx-auto">
+          <div className="flex justify-center w-full">
+            <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-8 items-stretch max-w-4xl w-full justify-center">
             
             {/* Plan 1: 10-Day Continuous Intensive Training Program */}
             <motion.div
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="c-bezel w-[86vw] sm:w-auto shrink-0 snap-center border-amber-500/60 pricing-card-highlight"
+              className="c-bezel w-[86vw] sm:w-full shrink-0 snap-center border-amber-500/60 pricing-card-highlight"
             >
               <div className="c-bezel-inner p-6 sm:p-10 flex flex-col justify-between h-full bg-[#07080A] space-y-6">
                 <div>
@@ -549,7 +550,7 @@ export default function HomePage() {
             <motion.div
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="c-bezel w-[86vw] sm:w-auto shrink-0 snap-center"
+              className="c-bezel w-[86vw] sm:w-full shrink-0 snap-center"
             >
               <div className="c-bezel-inner p-6 sm:p-10 flex flex-col justify-between h-full bg-[#0E1015] space-y-6">
                 <div>
@@ -604,6 +605,7 @@ export default function HomePage() {
               </div>
             </motion.div>
 
+            </div>
           </div>
         </motion.section>
 
