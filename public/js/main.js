@@ -279,95 +279,123 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
 
       const formData = {
-        ownerName: document.getElementById('b-owner-name')?.value || '',
+        ownerName: document.getElementById('b-owner-name')?.value || 'Dog Owner',
         phone: document.getElementById('b-owner-phone')?.value || '',
-        email: document.getElementById('b-owner-email')?.value || '',
-        dogName: document.getElementById('b-dog-name')?.value || '',
-        dogBreed: document.getElementById('b-dog-breed')?.value || '',
-        dogAge: document.getElementById('b-dog-age')?.value || '',
-        program: document.getElementById('booking-program-select')?.value || '',
-        location: document.getElementById('b-location')?.value || '',
-        notes: document.getElementById('b-notes')?.value || ''
+        email: document.getElementById('b-owner-email')?.value || 'Not provided',
+        dogName: document.getElementById('b-dog-name')?.value || 'My Dog',
+        dogBreed: document.getElementById('b-dog-breed')?.value || 'Not specified',
+        dogAge: document.getElementById('b-dog-age')?.value || 'Not specified',
+        program: document.getElementById('booking-program-select')?.value || '10-Day Continuous Intensive Training Program (Rs. 50,000)',
+        location: document.getElementById('b-location')?.value || 'Sri Lanka',
+        notes: document.getElementById('b-notes')?.value || 'None'
       };
 
-      try {
-        const res = await fetch('/api/book', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
-        });
-        const data = await res.json();
-        
-        if (data.success && data.whatsappUrl) {
-          window.triggerConfetti();
-          window.showToast(`Booking initiated for ${formData.dogName}! Opening WhatsApp...`, 'award');
-          bookingForm.innerHTML = `
-            <div class="text-center py-8 space-y-4">
-              <div class="w-16 h-16 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center mx-auto border border-green-500/40">
-                <i data-lucide="check" class="w-8 h-8"></i>
-              </div>
-              <h3 class="text-2xl font-bold text-white font-heading">Booking Application Initiated!</h3>
-              <p class="text-slate-300 text-sm max-w-md mx-auto font-body">
-                Thank you, <strong class="text-amber-400">${formData.ownerName}</strong>. To fast-track your priority evaluation for <strong class="text-white">${formData.dogName}</strong>, click below to open our Master Trainer WhatsApp Concierge directly.
-              </p>
-              <div class="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="${data.whatsappUrl}" target="_blank" class="btn-whatsapp-luxury justify-center">
-                  <i data-lucide="message-circle" class="w-5 h-5"></i>
-                  Open WhatsApp Concierge
-                </a>
-                <button onclick="window.closeBookingModal()" class="btn-secondary-luxury justify-center">
-                  Done
-                </button>
-              </div>
-            </div>
-          `;
-          if (window.lucide) window.lucide.createIcons();
-        }
-      } catch (err) {
-        window.showToast('Network issue. Opening direct WhatsApp hotline...', 'alert-circle');
-        alert('There was a problem submitting. You can message us directly on WhatsApp: +94 76 250 2279');
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
-      }
+      // Construct Formatted WhatsApp Direct Message (100% Pure Client-Side)
+      const waMsg = `🐾 *CEYLON K9 ACADEMY — ENROLMENT ENQUIRY*\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+        `👤 *Owner Name:* ${formData.ownerName}\n` +
+        `📞 *Phone:* ${formData.phone}\n` +
+        `📧 *Email:* ${formData.email}\n` +
+        `🐕 *Dog Name:* ${formData.dogName}\n` +
+        `🏷️ *Breed:* ${formData.dogBreed}\n` +
+        `🎂 *Age:* ${formData.dogAge}\n` +
+        `🎓 *Selected Program:* ${formData.program}\n` +
+        `📍 *Location:* ${formData.location}\n` +
+        `📝 *Special Notes:* ${formData.notes}\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+        `_Sent via Ceylon K9 Academy Official Portal_`;
+
+      const whatsappUrl = `https://wa.me/94762502279?text=${encodeURIComponent(waMsg)}`;
+
+      window.triggerConfetti();
+      window.showToast(`Booking initiated for ${formData.dogName}! Opening WhatsApp...`, 'award');
+
+      bookingForm.innerHTML = `
+        <div class="text-center py-8 space-y-4">
+          <div class="w-16 h-16 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center mx-auto border border-green-500/40 shadow-lg shadow-green-500/20">
+            <i data-lucide="check" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white font-heading">Enrolment Application Ready!</h3>
+          <p class="text-slate-300 text-sm max-w-md mx-auto font-body">
+            Thank you, <strong class="text-amber-400">${formData.ownerName}</strong>. Click below to connect directly with Master Trainer Ashen on WhatsApp to schedule your priority evaluation.
+          </p>
+          <div class="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="${whatsappUrl}" target="_blank" class="btn-whatsapp-luxury justify-center font-sans text-xs">
+              <svg class="w-4 h-4 fill-white shrink-0" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+              <span>Connect on WhatsApp</span>
+            </a>
+            <button onclick="window.closeBookingModal()" class="btn-secondary-luxury justify-center font-sans text-xs">
+              Done
+            </button>
+          </div>
+        </div>
+      `;
+      if (window.lucide) window.lucide.createIcons();
     });
   }
 
-  // Interactive Quiz / Assessment Tool
+  // Interactive Quiz / Assessment Tool (100% Client-Side)
   const assessmentForm = document.getElementById('dog-assessment-form');
   const assessmentResult = document.getElementById('assessment-result-box');
 
   if (assessmentForm && assessmentResult) {
-    assessmentForm.addEventListener('submit', async (e) => {
+    assessmentForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const ageGroup = document.querySelector('input[name="quiz-age"]:checked')?.value || 'adult';
       const primaryGoal = document.querySelector('input[name="quiz-goal"]:checked')?.value || 'obedience';
       const currentBehavior = document.querySelector('input[name="quiz-behavior"]:checked')?.value || 'calm';
 
-      const res = await fetch('/api/assessment', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ageGroup, primaryGoal, currentBehavior })
-      });
-      const data = await res.json();
+      let recommendedTitle = "10-Day Continuous Intensive Training Program 🚀";
+      let recommendedReason = "Our 10-day intensive program provides rapid, lasting behavioral correction and master on-leash obedience across Sri Lanka.";
+      let recommendedDuration = "10 Days (50 Mins/Day)";
+      let recommendedLevel = "Comprehensive Transformation";
+      let recommendedPrice = "Rs. 50,000/=";
 
-      if (data.success && data.recommendedProgram) {
-        window.triggerConfetti();
-        window.showToast('Canine match calculated!', 'sparkles');
-        const prog = data.recommendedProgram;
-        assessmentResult.innerHTML = `
-          <div class="p-6 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-left space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="eyebrow-badge">Recommended Match</span>
-              <span class="text-xs font-bold text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full">${prog.badge || 'Optimal Program'}</span>
-            </div>
-            <h4 class="text-2xl font-bold text-white font-heading">${prog.title}</h4>
-            <p class="text-slate-300 text-sm">${data.reason}</p>
-            <div class="flex flex-wrap gap-2 text-xs text-slate-400 pt-2">
-              <span class="bg-black/50 px-2.5 py-1 rounded-lg border border-white/5">⏱️ ${prog.duration}</span>
-              <span class="bg-black/50 px-2.5 py-1 rounded-lg border border-white/5">🎯 ${prog.level}</span>
-              <span class="bg-black/50 px-2.5 py-1 rounded-lg border border-white/5">🐾 ${prog.ageRange}</span>
-            </div>
-            <div class="pt-4 flex flex-col sm:flex-row gap-3">
+      if (ageGroup === 'puppy') {
+        recommendedTitle = "Puppy Foundation & Socialization";
+        recommendedReason = "During the 2 to 6 month imprinting window, early socialization and house manners prevent 95% of future behavioral problems.";
+        recommendedDuration = "4 - 6 Weeks";
+        recommendedLevel = "Beginner Imprinting";
+        recommendedPrice = "Rs. 35,000/=";
+      } else if (currentBehavior === 'reactive' || currentBehavior === 'fearful' || primaryGoal === 'behavior') {
+        recommendedTitle = "Behavior Modification & Aggression Rehab";
+        recommendedReason = "Specialized clinical counter-conditioning to address root neurological triggers of reactivity, resource guarding, or anxiety.";
+        recommendedDuration = "Custom Blueprint";
+        recommendedLevel = "Specialist Clinical";
+        recommendedPrice = "Custom Assessment";
+      }
+
+      window.triggerConfetti();
+      window.showToast('Canine match calculated!', 'sparkles');
+
+      assessmentResult.innerHTML = `
+        <div class="p-6 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-left space-y-4 shadow-xl">
+          <div class="flex items-center justify-between">
+            <span class="eyebrow-badge">Recommended Match</span>
+            <span class="text-xs font-bold text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full">${recommendedPrice}</span>
+          </div>
+          <h4 class="text-2xl font-bold text-white font-heading">${recommendedTitle}</h4>
+          <p class="text-slate-300 text-sm font-body leading-relaxed">${recommendedReason}</p>
+          <div class="flex flex-wrap gap-2 text-xs text-slate-300 pt-2 font-sans">
+            <span class="bg-black/60 px-3 py-1 rounded-lg border border-white/10">⏱️ ${recommendedDuration}</span>
+            <span class="bg-black/60 px-3 py-1 rounded-lg border border-white/10">🎯 ${recommendedLevel}</span>
+          </div>
+          <div class="pt-4 flex flex-col sm:flex-row gap-3">
+            <a href="programs.html" class="btn-secondary-luxury text-xs py-2 px-4 justify-center font-sans">
+              View All Programs
+            </a>
+            <button onclick="window.openBookingModal('${recommendedTitle}')" class="btn-primary-luxury text-xs py-2 px-4 justify-center font-sans">
+              Book This Program
+            </button>
+          </div>
+        </div>
+      `;
+      assessmentResult.classList.remove('hidden');
+      if (window.lucide) window.lucide.createIcons();
+    });
+  }
               <a href="/programs/${prog.slug}" class="btn-secondary-luxury text-xs py-2 px-4 justify-center">
                 View Curriculum
               </a>
