@@ -35,6 +35,29 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => playTactileClick(600, 0.04));
   });
 
+  // Theme Switcher (Dark / Luxury Silver & Orange Light Mode)
+  const themeToggleBtns = [
+    document.getElementById('theme-toggle-btn'),
+    document.getElementById('theme-toggle-btn-mobile'),
+    document.getElementById('theme-toggle-btn-drawer')
+  ].filter(Boolean);
+
+  const toggleTheme = () => {
+    const isLight = document.documentElement.classList.toggle('light-mode');
+    localStorage.setItem('k9_theme', isLight ? 'light' : 'dark');
+    if (window.showToast) {
+      window.showToast(isLight ? 'Platinum Silver & Sunset Orange Mode ☀️' : 'Obsidian OLED Dark Mode 🌙', isLight ? 'sun' : 'moon');
+    }
+    if (window.lucide) window.lucide.createIcons();
+  };
+
+  themeToggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleTheme();
+    });
+  });
+
   // Mobile Navigation Drawer Toggle
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
