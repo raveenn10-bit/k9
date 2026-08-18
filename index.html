@@ -194,8 +194,8 @@
     <!-- Background Hero Image with Deep Luxury Gradient Overlay & Ken Burns Zoom -->
     <div class="absolute inset-0 z-0 overflow-hidden">
       <img src="/media/hero.jpg" alt="Ceylon K9 Academy — Master Trainer Ashen" class="w-full h-full object-cover object-[70%_center] sm:object-[75%_center] kenburns-hero transform" fetchpriority="high" decoding="async">
-      <div class="hero-overlay-horizontal absolute inset-0 sm:w-3/4"></div>
-      <div class="hero-overlay-vertical absolute inset-0"></div>
+      <div class="hero-overlay-horizontal absolute inset-0 w-full"></div>
+      <div class="hero-overlay-vertical absolute inset-0 w-full"></div>
     </div>
 
     <!-- Hero Content Overlay with Staggered Fade-Up Reveal -->
@@ -362,7 +362,7 @@
     </div>
   </section>
 
-  <!-- 3. ALBUMS (Matches Reference Screenshot Exactly: Spaced Title + Filter Pills + 3x3 Clean Portrait Grid) -->
+  <!-- 3. ALBUMS (Matches Reference Screenshot: Spaced Title + Filter Pills + 3x3 Clean Portrait Grid) -->
   <section id="portfolio-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/5">
     
     <!-- Section Title (Exact Letter-Spaced Serif Heading from Screenshot) -->
@@ -392,16 +392,21 @@
           PUPPIES
         </button>
       </div>
+
+      <!-- Mobile Swipe Hint -->
+      <div class="flex sm:hidden items-center justify-center gap-1.5 text-[11px] font-semibold text-amber-400/90 pt-1">
+        <span>👈 Swipe horizontally to view albums 👉</span>
+      </div>
     </div>
 
-    <!-- 3x3 Clean Portrait Grid (Matches Screenshot: 3 Columns, Frameless High-Res Portrait Cards) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+    <!-- 3x3 Clean Portrait Grid (Horizontal Swipe on Mobile, 3 Cols on Desktop) -->
+    <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
       
-        <div class="gallery-grid-item group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="gsd" data-lightbox data-lightbox-src="/Album/554761127_122154654236787892_5296319287022271715_n.jpg" data-lightbox-caption="Arnold (German Shepherd (Long Coat)) — Obedience Training Honors">
+        <div class="gallery-grid-item w-[78vw] sm:w-auto shrink-0 snap-center group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="gsd" data-lightbox data-lightbox-src="/Album/554761127_122154654236787892_5296319287022271715_n.jpg" data-lightbox-caption="Arnold (German Shepherd (Long Coat)) — Obedience Training Honors">
           
           <!-- Image Aspect Ratio Container -->
           <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
-            <img src="/Album/554761127_122154654236787892_5296319287022271715_n.jpg" alt="Arnold" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            <img src="/Album/554761127_122154654236787892_5296319287022271715_n.jpg" alt="Arnold" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <!-- Top Tag on Hover -->
@@ -416,7 +421,7 @@
               <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
             </div>
 
-            <!-- Subtle Bottom Watermark Tag (Matches Photography Reference Style) -->
+            <!-- Subtle Bottom Watermark Tag -->
             <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white/80 opacity-60 group-hover:opacity-100 transition-opacity">
               <div>
                 <h4 class="text-xs sm:text-sm font-bold font-heading text-white">Arnold</h4>
@@ -428,11 +433,11 @@
 
         </div>
       
-        <div class="gallery-grid-item group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="boxer" data-lightbox data-lightbox-src="/Album/555549741_122154654404787892_5315441370469195461_n.jpg" data-lightbox-caption="Buri &amp; Bura (Boxer Siblings) — Dual Certification in Obedience">
+        <div class="gallery-grid-item w-[78vw] sm:w-auto shrink-0 snap-center group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="boxer" data-lightbox data-lightbox-src="/Album/555549741_122154654404787892_5315441370469195461_n.jpg" data-lightbox-caption="Buri &amp; Bura (Boxer Siblings) — Dual Certification in Obedience">
           
           <!-- Image Aspect Ratio Container -->
           <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
-            <img src="/Album/555549741_122154654404787892_5315441370469195461_n.jpg" alt="Buri &amp; Bura" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            <img src="/Album/555549741_122154654404787892_5315441370469195461_n.jpg" alt="Buri &amp; Bura" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <!-- Top Tag on Hover -->
@@ -447,7 +452,7 @@
               <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
             </div>
 
-            <!-- Subtle Bottom Watermark Tag (Matches Photography Reference Style) -->
+            <!-- Subtle Bottom Watermark Tag -->
             <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white/80 opacity-60 group-hover:opacity-100 transition-opacity">
               <div>
                 <h4 class="text-xs sm:text-sm font-bold font-heading text-white">Buri &amp; Bura</h4>
@@ -459,11 +464,11 @@
 
         </div>
       
-        <div class="gallery-grid-item group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="malinois" data-lightbox data-lightbox-src="/Album/500237257_122131567916787892_3281965166062166311_n.jpg" data-lightbox-caption="Rex (Belgian Malinois (Working Line)) — Advanced K9 Agility Pass">
+        <div class="gallery-grid-item w-[78vw] sm:w-auto shrink-0 snap-center group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="malinois" data-lightbox data-lightbox-src="/Album/500237257_122131567916787892_3281965166062166311_n.jpg" data-lightbox-caption="Rex (Belgian Malinois (Working Line)) — Advanced K9 Agility Pass">
           
           <!-- Image Aspect Ratio Container -->
           <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
-            <img src="/Album/500237257_122131567916787892_3281965166062166311_n.jpg" alt="Rex" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            <img src="/Album/500237257_122131567916787892_3281965166062166311_n.jpg" alt="Rex" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <!-- Top Tag on Hover -->
@@ -478,7 +483,7 @@
               <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
             </div>
 
-            <!-- Subtle Bottom Watermark Tag (Matches Photography Reference Style) -->
+            <!-- Subtle Bottom Watermark Tag -->
             <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white/80 opacity-60 group-hover:opacity-100 transition-opacity">
               <div>
                 <h4 class="text-xs sm:text-sm font-bold font-heading text-white">Rex</h4>
@@ -490,11 +495,11 @@
 
         </div>
       
-        <div class="gallery-grid-item group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="rottweiler" data-lightbox data-lightbox-src="/Album/499422200_122129296526787892_3931657032319304879_n.jpg" data-lightbox-caption="Rocky &amp; Bruno (Rottweiler Champion Line) — Advanced K9 Handler Pass">
+        <div class="gallery-grid-item w-[78vw] sm:w-auto shrink-0 snap-center group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="rottweiler" data-lightbox data-lightbox-src="/Album/499422200_122129296526787892_3931657032319304879_n.jpg" data-lightbox-caption="Rocky &amp; Bruno (Rottweiler Champion Line) — Advanced K9 Handler Pass">
           
           <!-- Image Aspect Ratio Container -->
           <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
-            <img src="/Album/499422200_122129296526787892_3931657032319304879_n.jpg" alt="Rocky &amp; Bruno" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            <img src="/Album/499422200_122129296526787892_3931657032319304879_n.jpg" alt="Rocky &amp; Bruno" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <!-- Top Tag on Hover -->
@@ -509,7 +514,7 @@
               <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
             </div>
 
-            <!-- Subtle Bottom Watermark Tag (Matches Photography Reference Style) -->
+            <!-- Subtle Bottom Watermark Tag -->
             <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white/80 opacity-60 group-hover:opacity-100 transition-opacity">
               <div>
                 <h4 class="text-xs sm:text-sm font-bold font-heading text-white">Rocky &amp; Bruno</h4>
@@ -521,11 +526,11 @@
 
         </div>
       
-        <div class="gallery-grid-item group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="family" data-lightbox data-lightbox-src="/Album/601018502_122165542862787892_2507724484870478693_n.jpg" data-lightbox-caption="Simba (Golden Labrador Retriever) — Canine Good Citizen Certified">
+        <div class="gallery-grid-item w-[78vw] sm:w-auto shrink-0 snap-center group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="family" data-lightbox data-lightbox-src="/Album/601018502_122165542862787892_2507724484870478693_n.jpg" data-lightbox-caption="Simba (Golden Labrador Retriever) — Canine Good Citizen Certified">
           
           <!-- Image Aspect Ratio Container -->
           <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
-            <img src="/Album/601018502_122165542862787892_2507724484870478693_n.jpg" alt="Simba" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            <img src="/Album/601018502_122165542862787892_2507724484870478693_n.jpg" alt="Simba" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <!-- Top Tag on Hover -->
@@ -540,7 +545,7 @@
               <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
             </div>
 
-            <!-- Subtle Bottom Watermark Tag (Matches Photography Reference Style) -->
+            <!-- Subtle Bottom Watermark Tag -->
             <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white/80 opacity-60 group-hover:opacity-100 transition-opacity">
               <div>
                 <h4 class="text-xs sm:text-sm font-bold font-heading text-white">Simba</h4>
@@ -552,11 +557,11 @@
 
         </div>
       
-        <div class="gallery-grid-item group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="family" data-lightbox data-lightbox-src="/Album/499709297_122130336914787892_162451422758202101_n.jpg" data-lightbox-caption="Teddy (Pomeranian Fluff) — Junior Companion Honors">
+        <div class="gallery-grid-item w-[78vw] sm:w-auto shrink-0 snap-center group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="family" data-lightbox data-lightbox-src="/Album/499709297_122130336914787892_162451422758202101_n.jpg" data-lightbox-caption="Teddy (Pomeranian Fluff) — Junior Companion Honors">
           
           <!-- Image Aspect Ratio Container -->
           <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
-            <img src="/Album/499709297_122130336914787892_162451422758202101_n.jpg" alt="Teddy" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            <img src="/Album/499709297_122130336914787892_162451422758202101_n.jpg" alt="Teddy" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <!-- Top Tag on Hover -->
@@ -571,7 +576,7 @@
               <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
             </div>
 
-            <!-- Subtle Bottom Watermark Tag (Matches Photography Reference Style) -->
+            <!-- Subtle Bottom Watermark Tag -->
             <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white/80 opacity-60 group-hover:opacity-100 transition-opacity">
               <div>
                 <h4 class="text-xs sm:text-sm font-bold font-heading text-white">Teddy</h4>
@@ -583,11 +588,11 @@
 
         </div>
       
-        <div class="gallery-grid-item group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="puppy" data-lightbox data-lightbox-src="/Album/494728895_122128227044787892_7708380751026631015_n.jpg" data-lightbox-caption="Shadow (European Rottweiler) — Junior Graduate">
+        <div class="gallery-grid-item w-[78vw] sm:w-auto shrink-0 snap-center group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="puppy" data-lightbox data-lightbox-src="/Album/494728895_122128227044787892_7708380751026631015_n.jpg" data-lightbox-caption="Shadow (European Rottweiler) — Junior Graduate">
           
           <!-- Image Aspect Ratio Container -->
           <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
-            <img src="/Album/494728895_122128227044787892_7708380751026631015_n.jpg" alt="Shadow" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            <img src="/Album/494728895_122128227044787892_7708380751026631015_n.jpg" alt="Shadow" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <!-- Top Tag on Hover -->
@@ -602,7 +607,7 @@
               <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
             </div>
 
-            <!-- Subtle Bottom Watermark Tag (Matches Photography Reference Style) -->
+            <!-- Subtle Bottom Watermark Tag -->
             <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white/80 opacity-60 group-hover:opacity-100 transition-opacity">
               <div>
                 <h4 class="text-xs sm:text-sm font-bold font-heading text-white">Shadow</h4>
@@ -614,11 +619,11 @@
 
         </div>
       
-        <div class="gallery-grid-item group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="puppy" data-lightbox data-lightbox-src="/Album/502621370_122132875100787892_2104062153873135068_n.jpg" data-lightbox-caption="Max &amp; Leo (Rottweiler Twin Pups) — Puppy Star Certified">
+        <div class="gallery-grid-item w-[78vw] sm:w-auto shrink-0 snap-center group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="puppy" data-lightbox data-lightbox-src="/Album/502621370_122132875100787892_2104062153873135068_n.jpg" data-lightbox-caption="Max &amp; Leo (Rottweiler Twin Pups) — Puppy Star Certified">
           
           <!-- Image Aspect Ratio Container -->
           <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
-            <img src="/Album/502621370_122132875100787892_2104062153873135068_n.jpg" alt="Max &amp; Leo" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            <img src="/Album/502621370_122132875100787892_2104062153873135068_n.jpg" alt="Max &amp; Leo" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <!-- Top Tag on Hover -->
@@ -633,7 +638,7 @@
               <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
             </div>
 
-            <!-- Subtle Bottom Watermark Tag (Matches Photography Reference Style) -->
+            <!-- Subtle Bottom Watermark Tag -->
             <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white/80 opacity-60 group-hover:opacity-100 transition-opacity">
               <div>
                 <h4 class="text-xs sm:text-sm font-bold font-heading text-white">Max &amp; Leo</h4>
@@ -645,11 +650,11 @@
 
         </div>
       
-        <div class="gallery-grid-item group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="rottweiler" data-lightbox data-lightbox-src="/Album/497454896_122129296610787892_5684493621398952729_n.jpg" data-lightbox-caption="Kaiser (Working Line Rottweiler) — Level II Protection Protocol">
+        <div class="gallery-grid-item w-[78vw] sm:w-auto shrink-0 snap-center group relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0E1015] border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer shadow-lg" data-category="rottweiler" data-lightbox data-lightbox-src="/Album/497454896_122129296610787892_5684493621398952729_n.jpg" data-lightbox-caption="Kaiser (Working Line Rottweiler) — Level II Protection Protocol">
           
           <!-- Image Aspect Ratio Container -->
           <div class="relative aspect-[3/4] w-full overflow-hidden bg-black">
-            <img src="/Album/497454896_122129296610787892_5684493621398952729_n.jpg" alt="Kaiser" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            <img src="/Album/497454896_122129296610787892_5684493621398952729_n.jpg" alt="Kaiser" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <!-- Top Tag on Hover -->
@@ -664,7 +669,7 @@
               <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
             </div>
 
-            <!-- Subtle Bottom Watermark Tag (Matches Photography Reference Style) -->
+            <!-- Subtle Bottom Watermark Tag -->
             <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white/80 opacity-60 group-hover:opacity-100 transition-opacity">
               <div>
                 <h4 class="text-xs sm:text-sm font-bold font-heading text-white">Kaiser</h4>
@@ -684,71 +689,78 @@
         VIEW FULL GRADUATE ALBUM
       </a>
     </div>
-  <!-- 4. TESTIMONIALS (Matches Reference Alternating Staggered Layout) -->
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/5">
+  </section>
+
+  <!-- 4. TESTIMONIALS (Horizontal Swipe on Mobile, Alternating Staggered on Desktop) -->
+  <section id="testimonials-section" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/5">
     
-    <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+    <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
       <h2 class="text-3xl sm:text-5xl font-bold font-brand text-white tracking-widest uppercase">
         TESTIMONIALS
       </h2>
       <p class="text-slate-400 text-sm font-body">Real stories from our graduated canine families across Sri Lanka.</p>
+      
+      <!-- Mobile Swipe Hint -->
+      <div class="flex sm:hidden items-center justify-center gap-1.5 text-[11px] font-semibold text-amber-400/90 pt-1">
+        <span>👈 Swipe horizontally for more stories 👉</span>
+      </div>
     </div>
 
-    <div class="space-y-16">
+    <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 sm:block sm:space-y-16">
       
       <!-- Testimonial Row 1 (Text Left + Photo Right) -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+      <div class="w-[88vw] sm:w-full shrink-0 snap-center p-6 sm:p-0 rounded-3xl sm:rounded-none bg-[#0E1015] sm:bg-transparent border border-white/10 sm:border-0 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
         <div class="md:col-span-7 space-y-4">
           <div class="flex text-amber-400 text-sm">★★★★★</div>
-          <p class="text-slate-200 text-base sm:text-lg italic font-serif leading-relaxed">
+          <p class="text-slate-200 text-sm sm:text-lg italic font-serif leading-relaxed">
             "Ceylon K9 Academy is miles ahead of traditional dog trainers in Sri Lanka. Their modern, science-based approach made Thor so obedient that he walks beside me through Colombo traffic with zero tension. Truly luxury standard!"
           </p>
           <div>
-            <h4 class="text-base font-bold text-white font-heading">Dr. Sanjeewa Wickramasinghe</h4>
+            <h4 class="text-sm sm:text-base font-bold text-white font-heading">Dr. Sanjeewa Wickramasinghe</h4>
             <p class="text-xs text-amber-400 font-medium">Colombo 07 • Thor (German Shepherd)</p>
           </div>
         </div>
         <div class="md:col-span-5">
           <div class="rounded-2xl overflow-hidden border border-white/10 aspect-[4/5] bg-[#0E1015] shadow-2xl group cursor-pointer" data-lightbox data-lightbox-src="/Album/500237257_122131567916787892_3281965166062166311_n.jpg" data-lightbox-caption="Thor (German Shepherd Graduate) with Master Trainer Ashen">
-            <img src="/Album/500237257_122131567916787892_3281965166062166311_n.jpg" alt="Thor GSD Graduate" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+            <img src="/Album/500237257_122131567916787892_3281965166062166311_n.jpg" alt="Thor GSD Graduate" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
 
       <!-- Testimonial Row 2 (Photo Left + Text Right) -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+      <div class="w-[88vw] sm:w-full shrink-0 snap-center p-6 sm:p-0 rounded-3xl sm:rounded-none bg-[#0E1015] sm:bg-transparent border border-white/10 sm:border-0 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
         <div class="md:col-span-5 order-2 md:order-1">
           <div class="rounded-2xl overflow-hidden border border-white/10 aspect-[4/5] bg-[#0E1015] shadow-2xl group cursor-pointer" data-lightbox data-lightbox-src="/Album/555549741_122154654404787892_5315441370469195461_n.jpg" data-lightbox-caption="Buri & Bura (Boxer & Dogo Siblings) Obedience Mastery">
-            <img src="/Album/555549741_122154654404787892_5315441370469195461_n.jpg" alt="Buri & Bura Boxers" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+            <img src="/Album/555549741_122154654404787892_5315441370469195461_n.jpg" alt="Buri & Bura Boxers" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="md:col-span-7 order-1 md:order-2 space-y-4">
           <div class="flex text-amber-400 text-sm">★★★★★</div>
-          <p class="text-slate-200 text-base sm:text-lg italic font-serif leading-relaxed">
+          <p class="text-slate-200 text-sm sm:text-lg italic font-serif leading-relaxed">
             "Managing two high-energy Boxers pulling on leashes was a daily struggle. Following the structured obedience program, both now walk in unison side-by-side with loose leashes without chaos. Unbelievable expertise!"
           </p>
           <div>
-            <h4 class="text-base font-bold text-white font-heading">Kavinda & Shiroma Perera</h4>
+            <h4 class="text-sm sm:text-base font-bold text-white font-heading">Kavinda & Shiroma Perera</h4>
             <p class="text-xs text-amber-400 font-medium">Negombo • Buri & Bura (Boxer Siblings)</p>
           </div>
         </div>
       </div>
 
       <!-- Testimonial Row 3 (Text Left + Photo Right) -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+      <div class="w-[88vw] sm:w-full shrink-0 snap-center p-6 sm:p-0 rounded-3xl sm:rounded-none bg-[#0E1015] sm:bg-transparent border border-white/10 sm:border-0 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
         <div class="md:col-span-7 space-y-4">
           <div class="flex text-amber-400 text-sm">★★★★★</div>
-          <p class="text-slate-200 text-base sm:text-lg italic font-serif leading-relaxed">
+          <p class="text-slate-200 text-sm sm:text-lg italic font-serif leading-relaxed">
             "I was worried about Zeus's reactive barking toward strangers. The behavioral team at Ceylon K9 Academy diagnosed the root-cause and rehabilitated him completely. Worth every single rupee."
           </p>
           <div>
-            <h4 class="text-base font-bold text-white font-heading">Dinesh Ratnayake</h4>
+            <h4 class="text-sm sm:text-base font-bold text-white font-heading">Dinesh Ratnayake</h4>
             <p class="text-xs text-amber-400 font-medium">Mount Lavinia • Zeus (Rottweiler)</p>
           </div>
         </div>
         <div class="md:col-span-5">
           <div class="rounded-2xl overflow-hidden border border-white/10 aspect-[4/5] bg-[#0E1015] shadow-2xl group cursor-pointer" data-lightbox data-lightbox-src="/Album/495901457_122128226996787892_5118561498875172140_n.jpg" data-lightbox-caption="Zeus (Rottweiler Behavioral Rehab Graduate)">
-            <img src="/Album/495901457_122128226996787892_5118561498875172140_n.jpg" alt="Zeus Rottweiler" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+            <img src="/Album/495901457_122128226996787892_5118561498875172140_n.jpg" alt="Zeus Rottweiler" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -756,10 +768,10 @@
     </div>
   </section>
 
-  <!-- 5. PLANS & INVESTMENT (Matches Exact Uploaded Ceylon K9 Academy 10-Day Program & Flexible Pricing) -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/5">
+  <!-- 5. PLANS & INVESTMENT (Horizontal Swipe on Mobile, 2 Cols on Desktop) -->
+  <section id="pricing-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/5">
     
-    <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+    <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
       <span class="eyebrow-badge">Transparent Tuition & Official Fees</span>
       <h2 class="text-3xl sm:text-5xl font-bold font-brand text-white tracking-widest uppercase">
         PLANS & INVESTMENT
@@ -767,14 +779,19 @@
       <p class="text-slate-400 text-sm sm:text-base font-body">
         Our official 10-day intensive training program designed for rapid, permanent behavioral correction and complete obedience.
       </p>
+
+      <!-- Mobile Swipe Hint -->
+      <div class="flex sm:hidden items-center justify-center gap-1.5 text-[11px] font-semibold text-amber-400/90 pt-1">
+        <span>👈 Swipe to compare plans 👉</span>
+      </div>
     </div>
 
-    <!-- 2 Plans Pricing Grid (Matches Screenshot Details) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
+    <!-- 2 Plans Pricing Grid (Horizontal Swipe Carousel on Mobile) -->
+    <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-8 items-stretch max-w-4xl mx-auto">
       
       <!-- Plan 1: 10-Day Continuous Intensive Training Program (Full Package Highlight) -->
-      <div class="c-bezel border-amber-500/60 pricing-card-highlight">
-        <div class="c-bezel-inner p-8 sm:p-10 flex flex-col justify-between h-full bg-[#07080A] space-y-6">
+      <div class="c-bezel w-[86vw] sm:w-auto shrink-0 snap-center border-amber-500/60 pricing-card-highlight">
+        <div class="c-bezel-inner p-6 sm:p-10 flex flex-col justify-between h-full bg-[#07080A] space-y-6">
           <div>
             <div class="flex items-center justify-between">
               <span class="text-xs uppercase text-amber-400 font-bold tracking-wider">Most Popular Choice</span>
@@ -832,8 +849,8 @@
       </div>
 
       <!-- Plan 2: Payment Flexibility Option (Daily Payments Accepted) -->
-      <div class="c-bezel">
-        <div class="c-bezel-inner p-8 sm:p-10 flex flex-col justify-between h-full bg-[#0E1015] space-y-6">
+      <div class="c-bezel w-[86vw] sm:w-auto shrink-0 snap-center">
+        <div class="c-bezel-inner p-6 sm:p-10 flex flex-col justify-between h-full bg-[#0E1015] space-y-6">
           <div>
             <div class="flex items-center justify-between">
               <span class="text-xs uppercase text-slate-400 font-bold tracking-wider">Pay-As-You-Train</span>
