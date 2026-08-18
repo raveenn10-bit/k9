@@ -556,3 +556,5 @@ const academyData = {
 };
 
 module.exports = academyData;
+module.exports.data = academyData;
+module.exports.default = academyData;
