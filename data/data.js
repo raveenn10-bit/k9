@@ -135,7 +135,7 @@ const academyData = {
       badge: "Specialist Certified",
       popular: false,
       priceLKR: "Custom Assessment",
-      image: "/Album/497454896_122129296526787892_3931657032319304879_n.jpg",
+      image: "/Album/497454896_122129296610787892_5684493621398952729_n.jpg",
       description: "Compassionate, scientific rehabilitation for complex behavioral disorders. We diagnose the neurological and emotional root causes of aggression, fear, and panic.",
       outcomes: [
         "Dog-on-dog and dog-to-human reactivity remediation",
@@ -346,7 +346,7 @@ const academyData = {
       category: "rottweiler",
       age: "2.5 Years",
       program: "Executive Protection & Deterrence",
-      image: "/Album/497454896_122129296526787892_5684493621398952729_n.jpg",
+      image: "/Album/497454896_122129296610787892_5684493621398952729_n.jpg",
       certificate: "Level II Protection Protocol",
       story: "Disciplined estate guardian with instant verbal release and laser sharp focus under extreme pressure.",
       ownerQuote: "Unmatched expertise. They understand the working dog psychology like no other academy."
@@ -383,7 +383,7 @@ const academyData = {
       price: "Rs. 14,500",
       rating: 5.0,
       reviewsCount: 62,
-      image: "/Album/497454896_122129296526787892_3931657032319304879_n.jpg",
+      image: "/Album/495901457_122128226996787892_5118561498875172140_n.jpg",
       description: "Authentic German engineered training collar designed for gentle, even pinch communication mimicking mother canine corrections. Smooth rounded blunt tips.",
       features: ["German stainless steel", "Even pressure distribution", "Custom size links included", "Recommended by top behavioral specialists"]
     },
