@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/Album/(.*)",
+      "destination": "/Album/"
+    },
+    {
+      "source": "/media/(.*)",
+      "destination": "/public/media/"
+    },
+    {
+      "source": "/css/(.*)",
+      "destination": "/public/css/"
+    },
+    {
+      "source": "/js/(.*)",
+      "destination": "/public/js/"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/api/index.js"
+    }
+  ]
+}
