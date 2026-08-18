@@ -674,3 +674,57 @@ html.light-mode .pricing-card-highlight {
   box-shadow: 0 20px 40px -10px rgba(234, 88, 12, 0.18) !important;
 }
 
+/* ==========================================================================
+   7. FRAMER-MOTION SMOOTH SPRINGS & SCROLL ANIMATIONS
+   ========================================================================== */
+.framer-reveal {
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.framer-reveal.framer-in-view {
+  opacity: 1;
+  transform: translateY(0px) scale(1);
+}
+
+/* Emojis & Symbols High-Contrast Rendering */
+.emoji-font,
+span:has(> span:empty) {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif !important;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* High-Contrast Luminous Dark Mode Defaults */
+html:not(.light-mode) {
+  color: #F8FAFC !important;
+}
+html:not(.light-mode) .text-slate-400 {
+  color: #CBD5E1 !important; /* Luminous soft silver instead of dark slate */
+}
+html:not(.light-mode) .text-slate-500 {
+  color: #94A3B8 !important;
+}
+html:not(.light-mode) .text-slate-300 {
+  color: #E2E8F0 !important;
+}
+html:not(.light-mode) .text-slate-200 {
+  color: #F1F5F9 !important;
+}
+
+/* 60fps Hardware Acceleration & Fast Scroll */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100vw;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .framer-reveal {
+    transition-duration: 0.5s !important;
+  }
+}
+
+

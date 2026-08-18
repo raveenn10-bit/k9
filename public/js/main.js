@@ -419,18 +419,68 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) window.lucide.createIcons();
     });
   }
-              <a href="/programs/${prog.slug}" class="btn-secondary-luxury text-xs py-2 px-4 justify-center">
-                View Curriculum
-              </a>
-              <button onclick="window.openBookingModal('${prog.title}')" class="btn-primary-luxury text-xs py-2 px-4 justify-center">
-                Book This Program
-              </button>
-            </div>
-          </div>
-        `;
-        assessmentResult.classList.remove('hidden');
-        if (window.lucide) window.lucide.createIcons();
-      }
+
+  // ==========================================================================
+  // FRAMER-MOTION STYLE GSAP ANIMATION & SPRING PHYSICS ENGINE
+  // ==========================================================================
+  
+  // 1. Magnetic Button Physics (Framer Motion Spring Pull)
+  const magneticButtons = document.querySelectorAll('.btn-primary-luxury, .btn-secondary-luxury, .btn-whatsapp-luxury, [data-magnetic]');
+  magneticButtons.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.22}px, ${y * 0.22}px) scale(1.02)`;
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0px, 0px) scale(1)';
+      btn.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+    });
+
+    btn.addEventListener('mouseenter', () => {
+      btn.style.transition = 'transform 0.1s ease-out';
+    });
+  });
+
+  // 2. 3D Tilt & Specular Light Hover on Luxury Cards
+  const tiltCards = document.querySelectorAll('.c-bezel, .gallery-card');
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -4.5;
+      const rotateY = ((x - centerX) / centerX) * 4.5;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      card.style.transition = 'transform 0.1s ease-out, border-color 0.3s ease';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      card.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease';
+    });
+  });
+
+  // 3. Staggered Scroll-Trigger Reveals (Framer-Motion Smooth Fade & Spring Lift)
+  const revealElements = document.querySelectorAll('section > div, .c-bezel, .gallery-grid-item, h2, .eyebrow-badge');
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('framer-in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    revealElements.forEach(el => {
+      el.classList.add('framer-reveal');
+      revealObserver.observe(el);
     });
   }
 
